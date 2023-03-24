@@ -116,5 +116,10 @@ plspは再帰関数もサポートしています。以下に、階乗関数と�
 
 (define (fib n) (if (< n 2)  n  (+ (fib (- n 1)) (fib (- n 2)))))
 
+(defunc (fib n) (if (< n 2)  n  (+ (fib (- n 1)) (fib (- n 2)))))
+
+
+(define fib (lambda(n) (if (< n 2)  n  (+ (fib (- n 1)) (fib (- n 2))))))
+
 
 (define (factorial n)  (if (= n 0) 1 (* n (factorial (- n 1)))))
