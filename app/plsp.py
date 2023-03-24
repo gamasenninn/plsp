@@ -45,11 +45,21 @@ def evaluate(x, env):
         env[symbol] = evaluate(exp, env)
     elif op == 'lambda':
         (params, body) = args
-        return lambda *args: evaluate(body, dict(env, **dict(zip(params, args))))
+        return lambda *arg_values: evaluate(body, extend_env(env, params, arg_values))
+    elif op == 'defunc':
+        (symbol, params, body) = args
+        env[symbol] = evaluate(['lambda', params, body], env)
     else:
         proc = evaluate(op, env)
         vals = [evaluate(arg, env) for arg in args]
         return proc(*vals)
+
+def extend_env(env, params, arg_values):
+    new_env = env.copy()
+    for param, value in zip(params, arg_values):
+        new_env[param] = value
+    return new_env
+
 
 def repl(prompt='plsp> '):
     global_env = initial_env()
