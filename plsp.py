@@ -61,11 +61,21 @@ def extend_env(env, params, arg_values):
     return new_env
 
 
+def count_parentheses(s):
+    return s.count('(') - s.count(')')
+
 def repl(prompt='plsp> '):
     global_env = initial_env()
     while True:
         try:
-            user_input = input(prompt)
+            user_input = ""
+            parentheses_count = 0
+            while True:
+                line = input(prompt if parentheses_count == 0 else "... ")
+                user_input += line + "\n"
+                parentheses_count += count_parentheses(line)
+                if parentheses_count == 0 and line.strip() != '':
+                    break
             if user_input.strip() == '':
                 continue
             val = evaluate(parse(user_input), global_env)
