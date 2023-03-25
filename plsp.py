@@ -65,7 +65,10 @@ def repl(prompt='plsp> '):
     global_env = initial_env()
     while True:
         try:
-            val = evaluate(parse(input(prompt)), global_env)
+            user_input = input(prompt)
+            if user_input.strip() == '':
+                continue
+            val = evaluate(parse(user_input), global_env)
             if val is not None:
                 print(schemestr(val))
         except Exception as e:
