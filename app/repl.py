@@ -5,7 +5,7 @@ from utils import schemestr
 def count_parentheses(s):
     return s.count('(') - s.count(')')
 
-def repl(prompt='plsp> '):
+def repl_main(prompt='plsp> '):
     global_env = initial_env()
     while True:
         try:
@@ -25,5 +25,5 @@ def repl(prompt='plsp> '):
         except Exception as e:
             print(f"{type(e).__name__}: {e}")
 
-if __name__ == '__main__':
-    repl()
+#if __name__ == '__main__':
+#    repl()

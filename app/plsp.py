@@ -1,6 +1,6 @@
 #plsp.py
 import sys
-from repl import repl
+from repl import repl_main
 from file_runner import run_file
 
 def main():
@@ -8,7 +8,7 @@ def main():
         filename = sys.argv[1]
         run_file(filename)
     else:
-        repl()
+        repl_main()
 
 if __name__ == '__main__':
     main()
