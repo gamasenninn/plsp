@@ -1,7 +1,7 @@
 #plsp.py
 import sys
-from repl import repl_main
-from file_runner import run_file
+from .repl import repl_main
+from .file_runner import run_file
 
 def main():
     if len(sys.argv) > 1:

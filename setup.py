@@ -10,7 +10,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'plsp = repl:main',
+            'plsp = plsp.plsp:main',
         ],
     },
 )

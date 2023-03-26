@@ -1,6 +1,6 @@
-from lparser import parse
-from evaluator import evaluate, initial_env
-from utils import schemestr
+from plsp.lparser import parse
+from plsp.evaluator import evaluate, initial_env
+from plsp.utils import schemestr
 
 def count_parentheses(s):
     return s.count('(') - s.count(')')
