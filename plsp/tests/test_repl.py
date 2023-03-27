@@ -1,6 +1,9 @@
 import sys
 import os
 import pytest
+#from plsp.repl import *
+
+
 if True:
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
     import repl

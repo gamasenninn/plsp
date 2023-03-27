@@ -1,4 +1,4 @@
-from repl import evaluate, parse, initial_env, schemestr
+from plsp.repl import evaluate, parse, initial_env, schemestr
 
 def run_file(filename):
     with open(filename, 'r') as file:
