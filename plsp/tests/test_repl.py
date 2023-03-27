@@ -235,3 +235,36 @@ def test_lisp_check_op():
     result = repl.evaluate(parsed, env)
     assert result == False
 
+def test_lisp_quote_op():
+    env = repl.initial_env()
+
+    # quote
+    program =  '(define n (quote aaabbbccc ))'
+    parsed = repl.parse(program)
+    _ = repl.evaluate(parsed, env)  
+
+    program = "n"
+    parsed = repl.parse(program)
+    result_x = repl.evaluate(parsed, env)
+    assert result_x == "aaabbbccc"
+
+    # w quote
+    program =  '(define x "aaa bbb ccc")'
+    parsed = repl.parse(program)
+    _ = repl.evaluate(parsed, env)  
+
+    program = "x"
+    parsed = repl.parse(program)
+    result_x = repl.evaluate(parsed, env)
+    assert result_x == "aaa bbb ccc"
+
+    # s quote
+    program =  "(define y 'aaa bbb ccc')"
+    parsed = repl.parse(program)
+    _ = repl.evaluate(parsed, env)  
+
+    program = "y"
+    parsed = repl.parse(program)
+    result_y = repl.evaluate(parsed, env)
+    assert result_y == "aaa bbb ccc"
+    assert result_y == result_x
