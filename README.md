@@ -15,17 +15,22 @@ pip install git+https://github.com/gamasenninn/plsp.git
 
 
 これにより、最新のバージョンの`plsp`パッケージがインストールされます。
-## 2. パッケージのアップグレード
+## 2. プロジェクトのアップグレード
 
 プロジェクトをアップグレードするには、次のコマンドを使用します。
 
-```css
+```
 pip install --upgrade --no-cache-dir git+https://github.com/gamasenninn/plsp.git
 ```
-
-
-
 このコマンドでは、キャッシュを無効にしてGitHubリポジトリから最新の変更を取得し、`plsp`パッケージをアップグレードします。
+
+もし、これによって更新がされない場合は、一度アンインストールして、再度リポジトリから新たにイントールしてください。
+
+```
+pip uninstall plsp
+pip install git+https://github.com/gamasenninn/plsp.git
+```
+
 ## 3. パッケージの実行
 
 パッケージが正常にインストールされていれば、コマンドラインから`plsp`コマンドを使用して実行できます。
