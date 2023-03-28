@@ -17,6 +17,9 @@ def repl_main(prompt='plsp> '):
                 except EOFError:  #Ctrl-D
                     print()
                     return
+                except KeyboardInterrupt:  #Ctrl-C
+                    print('\nKeyboardInterrupt')
+                    return
                 user_input += line + "\n"
                 parentheses_count += count_parentheses(line)
                 if parentheses_count == 0 and line.strip() != '':
