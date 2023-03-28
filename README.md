@@ -31,9 +31,9 @@ pip uninstall plsp
 pip install git+https://github.com/gamasenninn/plsp.git
 ```
 
-## 3. パッケージの実行
+## 3. plspの実行
 
-パッケージが正常にインストールされていれば、コマンドラインから`plsp`コマンドを使用して実行できます。
+プロジェクトが正常にインストールされていれば、コマンドラインから`plsp`コマンドを使用して実行できます。
 
 ```
 >plsp
