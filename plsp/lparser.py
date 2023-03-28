@@ -5,8 +5,13 @@ def tokenize(s):
     result = []
     current_token = ''
     in_quotes = False
+    in_comment = False
 
     for char in s:
+        if in_comment:
+            if char =='\n':
+                in_comment = False
+            continue
         if char in ['"',"'"]:
             in_quotes = not in_quotes
             if not in_quotes:
@@ -21,6 +26,8 @@ def tokenize(s):
                     current_token = ''
                 if char == '(' or char == ')':
                     result.append(char)
+        elif char == ';':
+            in_comment = True
         else:
             current_token += char
 
@@ -34,7 +41,8 @@ def tokenize(s):
 
 def read_from_tokens(tokens):
     if len(tokens) == 0:
-        raise SyntaxError("unexpected EOF")
+        return None
+    #    raise SyntaxError("unexpected EOF")
     token = tokens.pop(0)
     if token == '(':
         L = []
